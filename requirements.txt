@@ -6,3 +6,4 @@ pytesseract
 python-multipart
 pydantic
 python-dateutil
+openai
