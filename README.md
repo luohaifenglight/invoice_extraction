@@ -9,6 +9,7 @@ This service extracts structured invoice data from scanned and digital PDF invoi
 - Detects scanned (image-based) vs digital (text-based) PDFs.
 - Extracts invoice number, date, vendor name, and total amount.
 - REST API with `/extract` and `/health` endpoints.
+- REST API `/extract_with_llm` endpoints to summarize with AI.
 - Returns JSON output.
 - Includes automated tests.
 
