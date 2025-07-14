@@ -26,3 +26,41 @@ This service extracts structured invoice data from scanned and digital PDF invoi
 ```bash
 git clone <repo-url>
 cd <repo-dir>
+```
+
+2.Install system dependencies:
+On Ubuntu/Debian:
+```
+sudo apt-get update
+sudo apt-get install -y poppler-utils tesseract-ocr libtesseract-dev libleptonica-dev pkg-config
+```
+3.Create and activate virtual environment:
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+4.Install Python dependencies:
+```
+pip install -r requirements.txt
+```
+5.Running the app
+```
+uvicorn app.main:app --reload
+The API will be available at http://localhost:8000.
+```
+
+6.Docker
+Build and run with Docker:
+
+```
+docker build -t invoice-extractor .
+docker run -p 8000:8000 invoice-extractor
+```
+7.Limitations & Improvements
+```
+Extraction relies on regex heuristics; may fail on diverse invoice formats.
+OCR accuracy depends on image quality.
+Vendor name extraction is heuristic and may be inaccurate.
+Could improve with ML models or LLMs for better parsing.
+Stretch goal: extract line items, integrate LLM for semantic understanding.
+```
